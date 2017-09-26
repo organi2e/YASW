@@ -5,15 +5,16 @@
 //  Created by Kota Nakano on 2017/04/18.
 //  Copyright © 2017 Kota Nakano. All rights reserved.
 //
-
 import Cocoa
-class Observer: NSObject {
-	func shutdown(_: NSNotification) {
-		let source: String = "tell application \"system events\" to shut down"
-		guard let script: NSAppleScript = NSAppleScript(source: source) else { fatalError("no way") }
-		script.executeAndReturnError(nil)
+import os.log
+NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification,
+                                                  object: nil,
+                                                  queue: .current) { (_) in
+	let source: String = "tell application \"system events\" to shut down"
+	guard let script: NSAppleScript = NSAppleScript(source: source) else {
+		os_log("script %@ has any error", log: .default, type: .fault, source)
+		return
 	}
+	script.executeAndReturnError(nil)
 }
-let observer: Observer = Observer()
-NSWorkspace.shared().notificationCenter.addObserver(observer, selector: #selector(observer.shutdown), name: .NSWorkspaceWillSleep, object: nil)
-NSApplication.shared().run()
+NSApplication.shared.run()

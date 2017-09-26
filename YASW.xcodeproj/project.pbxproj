@@ -95,6 +95,7 @@
 					879D875D1EA5F78000FB6AD5 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 49QMLWEE5Z;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -221,18 +222,16 @@
 		879D87661EA5F78000FB6AD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 49QMLWEE5Z;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		879D87671EA5F78000FB6AD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 49QMLWEE5Z;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -255,6 +254,7 @@
 				879D87671EA5F78000FB6AD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
