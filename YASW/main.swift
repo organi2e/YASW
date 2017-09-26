@@ -9,10 +9,10 @@ import Cocoa
 import os.log
 NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification,
                                                   object: nil,
-                                                  queue: .current) { (_) in
+                                                  queue: .current) {
 	let source: String = "tell application \"system events\" to shut down"
 	guard let script: NSAppleScript = NSAppleScript(source: source) else {
-		os_log("script %@ has any error", log: .default, type: .fault, source)
+		os_log("script %@ has any error at %@", log: .default, type: .fault, source, String(describing: $0))
 		return
 	}
 	script.executeAndReturnError(nil)
