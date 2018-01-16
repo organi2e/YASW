@@ -7,13 +7,12 @@
 //
 import Cocoa
 import os.log
-NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification,
-                                                  object: nil,
-                                                  queue: .current) {
+withExtendedLifetime(NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willSleepNotification,
+																	   object: nil,
+																	   queue: .current) {
 	guard let script: NSAppleScript = NSAppleScript(source: "tell application \"system events\" to shut down") else {
-		os_log("%@", log: .default, type: .fault, String(describing: $0))
+		os_log("%{public}@", log: .default, type: .fault, String(describing: $0))
 		return
 	}
 	script.executeAndReturnError(nil)
-}
-NSApplication.shared.run()
+}, NSApplication.shared.run)
