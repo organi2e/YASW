@@ -19,7 +19,7 @@ withExtendedLifetime(NSWorkspace.shared.notificationCenter.addObserver(forName: 
 		case.none:
 			os_log(.info, "this machine will shut down by %{public}@", ProcessInfo.processInfo.processName)
 		case.some(let error):
-			os_log(.error, "@{public}@", String(describing: error))
+			os_log(.error, "%{public}@", String(describing: error))
 		}
 	}
 }, NSApplication.shared.run)
